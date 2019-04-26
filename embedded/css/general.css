@@ -1,0 +1,22 @@
+* {
+  font-family: Inter;
+}
+
+.header,
+.footer {
+  padding: 7rem;
+}
+
+.body {
+  padding: 2.5rem 7rem;
+}
+
+.header .button {
+  margin: 0 0.5rem;
+}
+.header .button:first-child {
+  margin: 0 0.5rem 0 0;
+}
+.header .button:last-child {
+  margin: 0 0 0 0.5rem;
+}
