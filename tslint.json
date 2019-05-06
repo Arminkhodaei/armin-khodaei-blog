@@ -6,7 +6,10 @@
     "quotemark": false,
     "no-console": false,
     "trailing-comma": false,
-    "ordered-imports": false
+    "ordered-imports": false,
+    "arrow-parens": false,
+    "object-literal-sort-keys": false,
+    "member-access": false
   },
   "rulesDirectory": []
 }

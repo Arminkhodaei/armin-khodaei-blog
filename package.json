@@ -4,14 +4,15 @@
   "description": "Armin Khodaei's personal blog",
   "main": "index.js",
   "scripts": {
-    "dev": "next -p 4000",
-    "build": "next build",
-    "start": "next start",
-    "lint": "eslint ."
+    "dev": "npm run test && next -p 4000",
+    "build": "npm run test && next build",
+    "start": "npm run test && next start",
+    "lint": "eslint .",
+    "test": "jest"
   },
   "keywords": [],
   "author": "Armin Khodaei <Arminkhodaei@gmail.com>",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "@types/next": "^8.0.5",
     "@types/react": "^16.8.16",
@@ -28,7 +29,13 @@
     "react-dom": "^16.8.1"
   },
   "devDependencies": {
+    "@types/enzyme": "^3.9.1",
+    "@types/enzyme-adapter-react-16": "^1.0.5",
+    "@types/jest": "^24.0.12",
     "babel-eslint": "^10.0.1",
+    "enzyme": "^3.9.0",
+    "enzyme-adapter-react-16": "^1.12.1",
+    "enzyme-to-json": "^3.3.5",
     "eslint": "^5.13.0",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-config-prettier": "^4.0.0",
@@ -36,7 +43,10 @@
     "eslint-plugin-jsx-a11y": "^6.2.1",
     "eslint-plugin-prettier": "^3.0.1",
     "eslint-plugin-react": "^7.12.4",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^24.7.1",
     "prettier": "^1.16.4",
+    "ts-jest": "^24.0.2",
     "tslint": "^5.16.0",
     "typescript": "^3.4.5"
   },
