@@ -1,9 +1,11 @@
 import React from 'react';
+import styled from '@emotion/styled';
+
+const Footer = styled.footer`
+  background-color: lightgray;
+  padding: 0 2em;
+`;
 
 export default () => {
-  return (
-    <footer className="footer">
-      <div className="content">This is the footer</div>
-    </footer>
-  );
+  return <Footer className="footer">This is the footer</Footer>;
 };
