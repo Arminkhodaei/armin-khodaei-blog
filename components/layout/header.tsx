@@ -1,6 +1,5 @@
 import Head from 'next/head';
 import React from 'react';
-import { css } from '@emotion/core';
 import styled from '@emotion/styled';
 
 // general css files
@@ -57,20 +56,20 @@ const NavMenu = styled.nav`
     text-decoration: none;
     font-size: 0.85em;
     font-weight: 500;
-    color: ${props => props.theme.text.color.light};
+    color: ${props => props.theme.menu.color};
   }
 `;
 
-const Title = styled.h3`
+const Title = styled.h2`
   & > a {
     text-decoration: none;
-    color: ${props => props.theme.text.color.normal};
+    color: ${props => props.theme.menu.color};
   }
 `;
 
 const SubTitle = styled.p`
-  font-size: 0.8em;
-  color: ${props => props.theme.text.color.light};
+  font-size: 0.75em;
+  color: ${props => props.theme.menu.color};
 
   ${props => props.theme.mediaQueries.small} {
     text-align: center;
@@ -81,16 +80,19 @@ const SubTitle = styled.p`
 `;
 
 const Header = styled.div`
-  background-color: lightblue;
+  background-color: #2c2c2c;
   padding: 0 2em;
 `;
 
 export default () => {
+  const title: string = 'Armin Khodaei';
+
   return (
     <Header className="header">
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta charSet="utf-8" />
+        <title>{title}</title>
       </Head>
       <NavMenu>
         <ul>
@@ -105,10 +107,10 @@ export default () => {
           </li>
         </ul>
         <Title>
-          <a href="/">Armin Khodaei</a>
+          <a href="/">{title}</a>
         </Title>
       </NavMenu>
-      <SubTitle>Software engineer, developer, and AI enthusiast...</SubTitle>
+      <SubTitle>Software Engineer, Developer, and AI enthusiast...</SubTitle>
     </Header>
   );
 };

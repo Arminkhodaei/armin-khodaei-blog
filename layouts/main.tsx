@@ -2,13 +2,24 @@ import React, { ReactNode } from 'react';
 
 import Footer from '../components/layout/footer';
 import Header from '../components/layout/header';
-import ThemeMaker, { Theme } from './theme';
+import { ThemeProvider } from './theme/ThemeProvider';
 
-import { css } from '@emotion/core';
-import { ThemeProvider } from 'emotion-theming';
 import styled from '@emotion/styled';
 
-const theme = ThemeMaker(Theme.Light);
+const Body = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  ${props => props.theme.mediaQueries.small} {
+    width: 100%;
+  }
+  ${props => props.theme.mediaQueries.medium} {
+    width: 70%;
+  }
+  ${props => props.theme.mediaQueries.large} {
+    width: 50%;
+  }
+`;
 
 const Content = styled.div`
   background-color: lightgreen;
@@ -17,27 +28,12 @@ const Content = styled.div`
 
 const Main: React.FC<ReactNode> = ({ children }) => {
   return (
-    <ThemeProvider theme={theme}>
-      <div
-        css={css`
-          display: flex;
-          flex-direction: column;
-          margin: auto;
-          ${theme.mediaQueries.small} {
-            width: 100%;
-          }
-          ${theme.mediaQueries.medium} {
-            width: 70%;
-          }
-          ${theme.mediaQueries.large} {
-            width: 50%;
-          }
-        `}
-      >
+    <ThemeProvider>
+      <Body>
         <Header />
         <Content className="content">{children}</Content>
         <Footer />
-      </div>
+      </Body>
     </ThemeProvider>
   );
 };

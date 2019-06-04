@@ -1,4 +1,3 @@
-import React from 'react';
 import Layout from '../layouts/main';
 
 const App: React.FC = () => {

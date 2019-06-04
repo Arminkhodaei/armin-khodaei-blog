@@ -1,4 +1,10 @@
-export enum Theme {
+export interface ITheme {
+  mode: ThemeMode;
+  styles: object;
+  toggle(): void;
+}
+
+export enum ThemeMode {
   Light,
   Dark
 }
@@ -18,9 +24,10 @@ const light = {
     }
   },
   menu: {
+    color: '#ededed',
     item: {
       backgroundColor: 'transparent',
-      hoverBackgroundColor: 'white'
+      hoverBackgroundColor: '#5a5a5a'
     }
   }
 };
@@ -41,14 +48,14 @@ const dark = {
   }
 };
 
-export default (theme: Theme) => {
+export const ThemeMaker = (theme: ThemeMode) => {
   switch (theme) {
-    case Theme.Light:
+    case ThemeMode.Light:
       return {
         ...light,
         mediaQueries: { ...mediaQueries }
       };
-    case Theme.Dark:
+    case ThemeMode.Dark:
       return {
         ...dark,
         mediaQueries: { ...mediaQueries }
