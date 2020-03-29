@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from '@emotion/styled';
+import styled from '../../layouts/theme';
 
 const Footer = styled.footer`
   background-color: lightgray;

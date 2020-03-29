@@ -1,22 +1,23 @@
 import React, { ReactNode, useState } from 'react';
-import { ThemeMaker, ThemeMode, ITheme } from './theme';
+import { ThemeMaker, ThemeModes, ITheme } from './theme';
 import { ThemeProvider as EmotionThemeProvider } from 'emotion-theming';
 
 export const ThemeContext = React.createContext({} as ITheme);
 
 export const ThemeProvider: React.FC<ReactNode> = ({ children }) => {
   const [theme, setTheme] = useState({
-    styles: ThemeMaker(ThemeMode.Light),
-    mode: ThemeMode.Light
+    styles: ThemeMaker(ThemeModes.Light),
+    mode: ThemeModes.Light,
   } as ITheme);
 
   function toggle() {
     setTheme({
       ...theme,
       styles: ThemeMaker(
-        theme.mode === ThemeMode.Light ? ThemeMode.Dark : ThemeMode.Light
+        theme.mode === ThemeModes.Light ? ThemeModes.Dark : ThemeModes.Light
       ),
-      mode: theme.mode === ThemeMode.Light ? ThemeMode.Dark : ThemeMode.Light
+      mode:
+        theme.mode === ThemeModes.Light ? ThemeModes.Dark : ThemeModes.Light,
     });
   }
 
@@ -24,7 +25,7 @@ export const ThemeProvider: React.FC<ReactNode> = ({ children }) => {
     <ThemeContext.Provider
       value={{
         ...theme,
-        toggle
+        toggle,
       }}
     >
       <EmotionThemeProvider theme={theme.styles}>

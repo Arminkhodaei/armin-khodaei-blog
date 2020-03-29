@@ -1,18 +1,22 @@
 export interface ITheme {
-  mode: ThemeMode;
-  styles: object;
+  mode: ThemeModes;
+  styles: ThemeStyles;
   toggle(): void;
 }
 
-export enum ThemeMode {
+export type ThemeStyles = {
+  mediaQueries: typeof mediaQueries;
+} & (typeof light | typeof dark);
+
+export enum ThemeModes {
   Light,
-  Dark
+  Dark,
 }
 
 export const mediaQueries = {
   small: '@media(max-width: 576px)',
   medium: '@media(min-width: 577px) and (max-width: 992px)',
-  large: '@media(min-width: 993px)'
+  large: '@media(min-width: 993px)',
 };
 
 const light = {
@@ -20,16 +24,16 @@ const light = {
     color: {
       light: '#797979',
       normal: '#464646',
-      dark: '#000000'
-    }
+      dark: '#000000',
+    },
   },
   menu: {
     color: '#ededed',
     item: {
       backgroundColor: 'transparent',
-      hoverBackgroundColor: '#5a5a5a'
-    }
-  }
+      hoverBackgroundColor: '#5a5a5a',
+    },
+  },
 };
 
 const dark = {
@@ -37,28 +41,29 @@ const dark = {
     color: {
       light: '#797979',
       normal: '#464646',
-      dark: '#000000'
-    }
+      dark: '#000000',
+    },
   },
   menu: {
+    color: '#ededed',
     item: {
       backgroundColor: 'transparent',
-      hoverBackgroundColor: 'white'
-    }
-  }
+      hoverBackgroundColor: 'white',
+    },
+  },
 };
 
-export const ThemeMaker = (theme: ThemeMode) => {
+export const ThemeMaker = (theme: ThemeModes): ThemeStyles => {
   switch (theme) {
-    case ThemeMode.Light:
+    case ThemeModes.Light:
       return {
         ...light,
-        mediaQueries: { ...mediaQueries }
+        mediaQueries,
       };
-    case ThemeMode.Dark:
+    case ThemeModes.Dark:
       return {
         ...dark,
-        mediaQueries: { ...mediaQueries }
+        mediaQueries,
       };
   }
 };

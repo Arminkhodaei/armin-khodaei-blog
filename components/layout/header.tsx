@@ -1,27 +1,21 @@
 import Head from 'next/head';
 import React from 'react';
-import styled from '@emotion/styled';
-
-// general css files
-import '../../embedded/css/normalize.css';
-import '../../embedded/css/general.css';
-// font related css files
-import '../../embedded/css/inter.css';
+import styled from '../../layouts/theme';
 
 const NavMenu = styled.nav`
   display: flex;
   flex-wrap: wrap;
   align-items: center;
 
-  ${props => props.theme.mediaQueries.small} {
+  ${(props) => props.theme.mediaQueries.small} {
     justify-content: center;
     flex-direction: column;
   }
-  ${props => props.theme.mediaQueries.medium} {
+  ${(props) => props.theme.mediaQueries.medium} {
     justify-content: center;
     flex-direction: column;
   }
-  ${props => props.theme.mediaQueries.large} {
+  ${(props) => props.theme.mediaQueries.large} {
     justify-content: space-between;
     flex-direction: row-reverse;
   }
@@ -38,11 +32,11 @@ const NavMenu = styled.nav`
     align-items: center;
     margin: 0 4px;
     border-radius: 3px;
-    background-color: ${props => props.theme.menu.item.backgroundColor};
+    background-color: ${(props) => props.theme.menu.item.backgroundColor};
     transition: background-color 0.5s;
   }
   & ul > li:hover {
-    background-color: ${props => props.theme.menu.item.hoverBackgroundColor};
+    background-color: ${(props) => props.theme.menu.item.hoverBackgroundColor};
   }
   & ul > li:last-of-type {
     margin-right: 0;
@@ -56,25 +50,25 @@ const NavMenu = styled.nav`
     text-decoration: none;
     font-size: 0.85em;
     font-weight: 500;
-    color: ${props => props.theme.menu.color};
+    color: ${(props) => props.theme.menu.color};
   }
 `;
 
 const Title = styled.h2`
   & > a {
     text-decoration: none;
-    color: ${props => props.theme.menu.color};
+    color: ${(props) => props.theme.menu.color};
   }
 `;
 
 const SubTitle = styled.p`
   font-size: 0.75em;
-  color: ${props => props.theme.menu.color};
+  color: ${(props) => props.theme.menu.color};
 
-  ${props => props.theme.mediaQueries.small} {
+  ${(props) => props.theme.mediaQueries.small} {
     text-align: center;
   }
-  ${props => props.theme.mediaQueries.medium} {
+  ${(props) => props.theme.mediaQueries.medium} {
     text-align: center;
   }
 `;
